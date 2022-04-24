@@ -105,16 +105,7 @@ func TestNet3Params() *Params {
 		BlockTaxProportion:       1,
 
 		// Checkpoints ordered from oldest to newest.
-		Checkpoints: []Checkpoint{
-			{83520, newHashFromStr("0000000001e6244d95feae8b598e854905158c7bc781daf874afff88675ef0c8")},
-			{148320, newHashFromStr("0000000003535b80e4b759b8ec1790f81f429d9f5a810eda43c3afb64d9760b1")},
-			{213120, newHashFromStr("000000000009bb6909db742278f3ab7c9169ef396068cce7f750b587b72738af")},
-			{282340, newHashFromStr("0000001f538d6343316fe50709fa544b680a1be38141d003e755da8ad30f67a8")},
-			{347140, newHashFromStr("0000001638f00f197b882a00db04d1323e205f45bf1108e4f1bbc1f456d4250c")},
-			{411940, newHashFromStr("00000012b6d21f31f18a2f6d8b64e111327f011ac13a1b3e9d0d8b477f71f62b")},
-			{476740, newHashFromStr("00000005635a4b783ad4d85e0cb92f094e2e885a92ef4d6b8464b22a02646279")},
-			{515730, newHashFromStr("00000010ecddf8da5d91f7020f69130db8a163906d460cbbed2a91568701f0ac")},
-		},
+		Checkpoints: nil,
 
 		// MinKnownChainWork is the minimum amount of known total work for the
 		// chain at a given point in time.  This is intended to be updated
@@ -132,92 +123,7 @@ func TestNet3Params() *Params {
 		RuleChangeActivationMultiplier: 3,    // 75%
 		RuleChangeActivationDivisor:    4,
 		RuleChangeActivationInterval:   5040, // 1 week
-		Deployments: map[uint32][]ConsensusDeployment{
-			7: {{
-				Vote: Vote{
-					Id:          VoteIDFixLNSeqLocks,
-					Description: "Modify sequence lock handling as defined in DCP0004",
-					Mask:        0x0006, // Bits 1 and 2
-					Choices: []Choice{{
-						Id:          "abstain",
-						Description: "abstain voting for change",
-						Bits:        0x0000,
-						IsAbstain:   true,
-						IsNo:        false,
-					}, {
-						Id:          "no",
-						Description: "keep the existing consensus rules",
-						Bits:        0x0002, // Bit 1
-						IsAbstain:   false,
-						IsNo:        true,
-					}, {
-						Id:          "yes",
-						Description: "change to the new consensus rules",
-						Bits:        0x0004, // Bit 2
-						IsAbstain:   false,
-						IsNo:        false,
-					}},
-				},
-				StartTime:  1548633600, // Jan 28th, 2019
-				ExpireTime: 1580169600, // Jan 28th, 2020
-			}},
-			8: {{
-				Vote: Vote{
-					Id:          VoteIDHeaderCommitments,
-					Description: "Enable header commitments as defined in DCP0005",
-					Mask:        0x0006, // Bits 1 and 2
-					Choices: []Choice{{
-						Id:          "abstain",
-						Description: "abstain voting for change",
-						Bits:        0x0000,
-						IsAbstain:   true,
-						IsNo:        false,
-					}, {
-						Id:          "no",
-						Description: "keep the existing consensus rules",
-						Bits:        0x0002, // Bit 1
-						IsAbstain:   false,
-						IsNo:        true,
-					}, {
-						Id:          "yes",
-						Description: "change to the new consensus rules",
-						Bits:        0x0004, // Bit 2
-						IsAbstain:   false,
-						IsNo:        false,
-					}},
-				},
-				StartTime:  1567641600, // Sep 5th, 2019
-				ExpireTime: 1599264000, // Sep 5th, 2020
-			}},
-			9: {{
-				Vote: Vote{
-					Id:          VoteIDTreasury,
-					Description: "Enable decentralized Treasury opcodes as defined in DCP0006",
-					Mask:        0x0006, // Bits 1 and 2
-					Choices: []Choice{{
-						Id:          "abstain",
-						Description: "abstain voting for change",
-						Bits:        0x0000,
-						IsAbstain:   true,
-						IsNo:        false,
-					}, {
-						Id:          "no",
-						Description: "keep the existing consensus rules",
-						Bits:        0x0002, // Bit 1
-						IsAbstain:   false,
-						IsNo:        true,
-					}, {
-						Id:          "yes",
-						Description: "change to the new consensus rules",
-						Bits:        0x0004, // Bit 2
-						IsAbstain:   false,
-						IsNo:        false,
-					}},
-				},
-				StartTime:  1596240000, // Aug 1st, 2020
-				ExpireTime: 1627776000, // Aug 1st, 2021
-			}},
-		},
+		Deployments:                    map[uint32][]ConsensusDeployment{},
 
 		// Enforce current block version once majority of the network has
 		// upgraded.
@@ -304,8 +210,7 @@ func TestNet3Params() *Params {
 		TreasuryVoteRequiredDivisor:    5,
 
 		seeders: []string{
-			"testnet-seed-1.decred.org",
-			"testnet-seed-2.decred.org",
+			"161.117.85.88",
 		},
 	}
 }

@@ -39,3 +39,8 @@ require (
 	golang.org/x/crypto v0.0.0-20200820211705-5c72a883971a
 	golang.org/x/sync v0.0.0-20200625203802-6e8e738ad208
 )
+
+replace (
+	github.com/decred/dcrd/chaincfg/v3 v3.0.0 => ./chaincfg
+	github.com/decred/dcrd/connmgr/v3 v3.0.0 => ./connmgr
+)

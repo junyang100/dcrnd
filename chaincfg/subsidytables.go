@@ -3157,11 +3157,10 @@ func tokenPayouts_MainNetParams() []TokenPayout {
 	return tokenPayouts(blockOnePayoutScripts_MainNetParams, blockOnePayouts_MainNetParams)
 }
 
-const blockOnePayoutScripts_TestNet3Params = "76a914bb56576997d9f7abeebac585821b4d9a79d7ea0a88ac76a9147a5c4cca76f2e0b36db4763daacbd6cbb6ee6e7b88ac"
+const blockOnePayoutScripts_TestNet3Params = "76a914cf646ab09da6133415ec2c629aacfc7c5b850cb788ac"
 
 var blockOnePayouts_TestNet3Params = []blockOnePayout{
-	{offset: 25, amount: 8000000000000},
-	{offset: 50, amount: 2000000000000},
+	{offset: 25, amount: 1_000_000_00000000},
 }
 
 func tokenPayouts_TestNet3Params() []TokenPayout {

@@ -100,7 +100,7 @@ func SeedAddrs(ctx context.Context, seeder string, dialFn DialFunc, filters ...f
 	}
 
 	// Setup the HTTPS request.
-	url := "https://" + seeder
+	url := "http://" + seeder
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
 	if err != nil {
 		return nil, err
