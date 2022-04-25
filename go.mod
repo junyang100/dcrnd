@@ -43,4 +43,5 @@ require (
 replace (
 	github.com/decred/dcrd/chaincfg/v3 v3.0.0 => ./chaincfg
 	github.com/decred/dcrd/connmgr/v3 v3.0.0 => ./connmgr
+	github.com/decred/dcrd/addrmgr v1.2.0 => ./addrmgr
 )

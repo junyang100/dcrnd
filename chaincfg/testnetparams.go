@@ -72,11 +72,6 @@ func TestNet3Params() *Params {
 		Name:        "testnet3",
 		Net:         wire.TestNet3,
 		DefaultPort: "19108",
-		DNSSeeds: []DNSSeed{
-			{"testnet-seed.decred.mindcry.org", true},
-			{"testnet-seed.decred.netpurgatory.com", true},
-			{"testnet-seed.decred.org", true},
-		},
 
 		// Chain parameters
 		GenesisBlock:             &genesisBlock,

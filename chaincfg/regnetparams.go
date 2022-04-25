@@ -81,7 +81,6 @@ func RegNetParams() *Params {
 		Name:        "regnet",
 		Net:         wire.RegNet,
 		DefaultPort: "18655",
-		DNSSeeds:    nil, // NOTE: There must NOT be any seeds.
 
 		// Chain parameters
 		GenesisBlock:             &genesisBlock,

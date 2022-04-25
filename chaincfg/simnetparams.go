@@ -80,7 +80,6 @@ func SimNetParams() *Params {
 		Name:        "simnet",
 		Net:         wire.SimNet,
 		DefaultPort: "18555",
-		DNSSeeds:    nil, // NOTE: There must NOT be any seeds.
 
 		// Chain parameters
 		GenesisBlock:             &genesisBlock,

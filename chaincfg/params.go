@@ -202,12 +202,6 @@ type Params struct {
 	// DefaultPort defines the default peer-to-peer port for the network.
 	DefaultPort string
 
-	// DNSSeeds defines a list of DNS seeds for the network that are used
-	// as one method to discover peers.
-	//
-	// Deprecated: This will be removed in the next major version bump.
-	DNSSeeds []DNSSeed
-
 	// GenesisBlock defines the first block of the chain.
 	GenesisBlock *wire.MsgBlock
 
