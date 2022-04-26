@@ -1104,7 +1104,7 @@ func (p *Peer) maybeAddDeadline(pendingResponses map[string]time.Time, msgCmd st
 
 	case wire.CmdGetBlocks:
 		// Expects an inv message.
-		pendingResponses[wire.CmdInv] = deadline
+		pendingResponses[wire.CmdBlock] = deadline
 
 	case wire.CmdGetData:
 		// Expects a block, tx, or notfound message.
@@ -1124,6 +1124,9 @@ func (p *Peer) maybeAddDeadline(pendingResponses map[string]time.Time, msgCmd st
 
 	case wire.CmdGetInitState:
 		pendingResponses[wire.CmdInitState] = deadline
+	}
+	for key, value := range pendingResponses {
+		fmt.Printf("After add,%+v => %+v\n", key, value)
 	}
 }
 
@@ -1182,6 +1185,9 @@ out:
 				default:
 					log.Debugf("Remove from pendingResponses command %s for peer %s", msgCmd, p.addr)
 					delete(pendingResponses, msgCmd)
+					for key, value := range pendingResponses {
+						fmt.Printf("After remove,%+v => %+v\n", key, value)
+					}
 				}
 
 			case sccHandlerStart:
