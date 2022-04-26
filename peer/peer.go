@@ -1089,9 +1089,10 @@ func (p *Peer) maybeAddDeadline(pendingResponses map[string]time.Time, msgCmd st
 	// sent asynchronously and as a result of a long backlog of messages,
 	// such as is typical in the case of initial block download, the
 	// response won't be received in time.
-	log.Debugf("Adding deadline for command %s for peer %s", msgCmd, p.addr)
 
 	deadline := time.Now().Add(stallResponseTimeout)
+	log.Debugf("Adding deadline %+v for command %s for peer %s", deadline, msgCmd, p.addr)
+
 	switch msgCmd {
 	case wire.CmdVersion:
 		// Expects a verack message.
@@ -1173,11 +1174,13 @@ out:
 				case wire.CmdTx:
 					fallthrough
 				case wire.CmdNotFound:
+					log.Debugf("Remove from pendingResponses CmdNotFound command %s for peer %s", msgCmd, p.addr)
 					delete(pendingResponses, wire.CmdBlock)
 					delete(pendingResponses, wire.CmdTx)
 					delete(pendingResponses, wire.CmdNotFound)
 
 				default:
+					log.Debugf("Remove from pendingResponses command %s for peer %s", msgCmd, p.addr)
 					delete(pendingResponses, msgCmd)
 				}
 

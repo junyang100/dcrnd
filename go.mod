@@ -44,4 +44,5 @@ replace (
 	github.com/decred/dcrd/chaincfg/v3 v3.0.0 => ./chaincfg
 	github.com/decred/dcrd/connmgr/v3 v3.0.0 => ./connmgr
 	github.com/decred/dcrd/addrmgr v1.2.0 => ./addrmgr
+	github.com/decred/dcrd/peer/v2 v2.2.0 => ./peer
 )
